@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[]) {
+    char choice;
+    printf("Choose an operation to perform on a String:\n1.Uppercase\n2.Lowercase\n3.Numberize\n4.Canadianize\n5.Respond\n6.De-Space It\n");
+    fgets(&choice, 3, stdin);
+    int c = choice - '0';
+    //printf("Your integer is %d", c); confirm integer
     char inputChars[255];
     printf("Input a String:");
     fgets(inputChars, 255, stdin);
