@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[]) {
+    while (YES){
     char choice;
     printf("Choose an operation to perform on a String:\n1.Uppercase\n2.Lowercase\n3.Numberize\n4.Canadianize\n5.Respond\n6.De-Space It\n");
     fgets(&choice, 3, stdin);
@@ -19,7 +20,6 @@ int main(int argc, const char * argv[]) {
     fgets(inputChars, 255, stdin);
     printf("Your string is %s\n", inputChars);
     NSString *inputString = [NSString stringWithUTF8String:inputChars];
-    NSLog(@"%@", inputString);
     
     if (c == 1){
         NSString *uppercase = [inputString uppercaseString];
@@ -29,9 +29,16 @@ int main(int argc, const char * argv[]) {
         NSString *lowercase = [inputString lowercaseString];
         NSLog(@"%@", lowercase);
     }
-    //if (c == 3){
-      //  if (int t =
-    //}
+    if (c == 3){
+        _Bool v = [[NSScanner scannerWithString:inputString] scanFloat:NULL];
+        if (v == YES){
+            float N = [inputString floatValue];
+            NSLog(@"%f", N);
+        }
+        else {
+            NSLog(@"Not only numbers in string");
+        }
+        }
     if (c == 4){
         NSString *appended = [inputString stringByAppendingString:@" eh"];
         NSLog(@"%@", appended);
@@ -41,16 +48,18 @@ int main(int argc, const char * argv[]) {
         if ([lastChar isEqual: @"?\n"]){
             NSLog(@"I don't know");
             }
-        else if ([lastChar isEqual: @"!\n"]){
-            NSLog(@"Whoa calm down");
+        if ([lastChar isEqual: @"!\n"]){
+            NSLog(@"Whoa calm down!");
             }
         else {
             NSLog(@"Nothing");
             }
- 
-        
     }
-    //NSLog(@"Input was: %@", inputString);
-    
+    if (c == 6){
+        NSString *ReplacedStr = [inputString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+        NSLog(@"%@", ReplacedStr);
+    }
+    }
     return 0;
 }
+
