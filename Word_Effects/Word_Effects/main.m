@@ -20,7 +20,33 @@ int main(int argc, const char * argv[]) {
     printf("Your string is %s\n", inputChars);
     NSString *inputString = [NSString stringWithUTF8String:inputChars];
     
-    NSLog(@"Input was: %@", inputString);
+    if (c == 1){
+        NSString *uppercase = [inputString uppercaseString];
+        NSLog(@"%@", uppercase);
+    }
+    if (c == 2){
+        NSString *lowercase = [inputString lowercaseString];
+        NSLog(@"%@", lowercase);
+    }
+    //if (c == 3){
+      //  if (int t =
+    //}
+    if (c == 4){
+        NSString *appended = [inputString stringByAppendingString:@" eh"];
+        NSLog(@"%@", appended);
+    }
+    if (c == 5){
+        if ([inputString hasSuffix:@"?\n"] == (YES)){
+            NSLog(@"I don't know");
+            }
+        if ([inputString hasSuffix:@"!"]){
+            NSLog(@"Whoa calm down");
+            }
+        else {
+            NSLog(@"Nothing");
+            }
+    }
+    //NSLog(@"Input was: %@", inputString);
     
     return 0;
 }
