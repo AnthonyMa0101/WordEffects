@@ -19,6 +19,7 @@ int main(int argc, const char * argv[]) {
     fgets(inputChars, 255, stdin);
     printf("Your string is %s\n", inputChars);
     NSString *inputString = [NSString stringWithUTF8String:inputChars];
+    NSLog(@"%@", inputString);
     
     if (c == 1){
         NSString *uppercase = [inputString uppercaseString];
@@ -36,15 +37,18 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%@", appended);
     }
     if (c == 5){
-        if ([inputString hasSuffix:@"?\n"] == (YES)){
+        NSString *lastChar = [inputString substringFromIndex:[inputString length] - 2];
+        if ([lastChar isEqual: @"?\n"]){
             NSLog(@"I don't know");
             }
-        if ([inputString hasSuffix:@"!"]){
+        else if ([lastChar isEqual: @"!\n"]){
             NSLog(@"Whoa calm down");
             }
         else {
             NSLog(@"Nothing");
             }
+ 
+        
     }
     //NSLog(@"Input was: %@", inputString);
     
